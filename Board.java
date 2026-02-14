@@ -10,6 +10,24 @@ public class Board{
             }
         }
     }
-
+    public char GetPosition(Position p){
+        if (p == null){
+            throw new IllegalArgumentException("Position cannot be null");
+        }
+        if (!p.InBounds()){
+            throw new IllegalArgumentException("Position out of bounds");
+        }
+        
+        return squares[p.row()][p.col()];
+    }
+    public void SetPosition(Position p, char piece){
+        if (p == null){
+            throw new IllegalArgumentException("Position cannot be null");
+        }
+        if (!p.InBounds()){
+            throw new IllegalArgumentException("Position out of bounds");
+        }
+        piece = squares[p.row()][p.col()];
+    }
 
 }
